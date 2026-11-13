@@ -1,146 +1,124 @@
 // ==========================================================
-// 1. MOBILE NAVIGATION
+// MOBILE NAVBAR & COMMON UTILITIES
 // ==========================================================
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
 
-const mobileMenu = document.getElementById("mobile-menu");
-const navLinks = document.querySelector(".nav-links");
-
-if (mobileMenu && navLinks) {
-    mobileMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+if(mobileMenu && navLinks) {
+    mobileMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
     });
 }
 
-
-// ==========================================================
-// 2. ACTIVE NAVIGATION LINK
-// ==========================================================
-
+// Active link highlighter
 const currentLocation = location.href;
-const menuItems = document.querySelectorAll(".nav-links a");
-
-menuItems.forEach(item => {
-    if (item.href === currentLocation) {
-        item.classList.add("active");
+const menuItem = document.querySelectorAll('.nav-links a');
+menuItem.forEach(item => {
+    if(item.href === currentLocation) {
+        item.classList.add('active');
     }
 });
 
-
 // ==========================================================
-// 3. HERO BACKGROUND SLIDESHOW
+// 1. HERO SECTION BACKGROUND SMOOTH SLIDESHOW
 // ==========================================================
-
-const heroSlides = document.querySelectorAll(".hero-slide");
-
-if (heroSlides.length > 0) {
+const heroSlides = document.querySelectorAll('.hero-slide');
+if(heroSlides.length > 0) {
     let currentSlide = 0;
 
     function nextHeroSlide() {
-        heroSlides[currentSlide].classList.remove("active");
+        heroSlides[currentSlide].classList.remove('active');
         currentSlide = (currentSlide + 1) % heroSlides.length;
-        heroSlides[currentSlide].classList.add("active");
+        heroSlides[currentSlide].classList.add('active');
     }
 
+    // Change slide every 6 seconds with buttery-smooth crossfade
     setInterval(nextHeroSlide, 6000);
 }
-
-
 // ==========================================================
-// 4. COUNTDOWN TIMER
+// 2. COUNTDOWN TIMER LOGIC (Term Opening / Milestone)
 // ==========================================================
-
 function updateCountdown() {
-    const targetDate = new Date("February 1, 2027 08:00:00").getTime();
-    const now = Date.now();
+    const targetDate = new Date('February 1, 2027 08:00:00').getTime();
+    const now = new Date().getTime();
     const difference = targetDate - now;
 
-    const daysEl = document.getElementById("days");
-    const hoursEl = document.getElementById("hours");
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
 
-    if (!daysEl || !hoursEl || !minutesEl || !secondsEl) return;
+    if (daysEl && hoursEl && minutesEl && secondsEl) {
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    if (difference <= 0) {
-        daysEl.textContent = "00";
-        hoursEl.textContent = "00";
-        minutesEl.textContent = "00";
-        secondsEl.textContent = "00";
-        return;
+            daysEl.textContent = String(days).padStart(2, '0');
+            hoursEl.textContent = String(hours).padStart(2, '0');
+            minutesEl.textContent = String(minutes).padStart(2, '0');
+            secondsEl.textContent = String(seconds).padStart(2, '0');
+        } else {
+            daysEl.textContent = "00";
+            hoursEl.textContent = "00";
+            minutesEl.textContent = "00";
+            secondsEl.textContent = "00";
+        }
     }
-
-    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-    daysEl.textContent = String(days).padStart(2, "0");
-    hoursEl.textContent = String(hours).padStart(2, "0");
-    minutesEl.textContent = String(minutes).padStart(2, "0");
-    secondsEl.textContent = String(seconds).padStart(2, "0");
 }
-
-updateCountdown();
 setInterval(updateCountdown, 1000);
-
+updateCountdown();
 
 // ==========================================================
-// 5. TESTIMONIAL SLIDER
+// 3. AUTOMATED TESTIMONIAL SLIDER ROTATION
 // ==========================================================
+let currentTestimonial = 0;
+const testimonials = document.querySelectorAll('.testimonial-item');
 
-const testimonials = document.querySelectorAll(".testimonial-item");
-
-if (testimonials.length > 0) {
-    let currentTestimonial = 0;
-
-    function rotateTestimonials() {
-        testimonials[currentTestimonial].classList.remove("active");
+function rotateTestimonials() {
+    if(testimonials.length > 0) {
+        testimonials[currentTestimonial].classList.remove('active');
         currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-        testimonials[currentTestimonial].classList.add("active");
+        testimonials[currentTestimonial].classList.add('active');
     }
-
-    setInterval(rotateTestimonials, 5000);
+}
+if(testimonials.length > 0) {
+    setInterval(rotateTestimonials, 5000); // Rotates testimonials every 5 seconds
 }
 
-
 // ==========================================================
-// 6. GALLERY LIGHTBOX
+// GALLERY LIGHTBOX & FILTER INTERACTIVITY
 // ==========================================================
+const galleryItems = document.querySelectorAll('.gallery-item');
+const lightboxModal = document.getElementById('lightboxModal');
+const lightboxImg = document.getElementById('lightboxImg');
+const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxClose = document.querySelector('.lightbox-close');
 
-const galleryItems = document.querySelectorAll(".gallery-item");
-const lightboxModal = document.getElementById("lightboxModal");
-const lightboxImg = document.getElementById("lightboxImg");
-const lightboxCaption = document.getElementById("lightboxCaption");
-const lightboxClose = document.querySelector(".lightbox-close");
-
-if (lightboxModal && lightboxImg && lightboxCaption) {
+if(lightboxModal) {
     galleryItems.forEach(item => {
-        item.addEventListener("click", () => {
-            const image = item.querySelector("img");
-            const title = item.querySelector("h4");
-
-            if (!image || !title) return;
-
-            lightboxModal.style.display = "block";
-            lightboxImg.src = image.src;
-            lightboxImg.alt = image.alt;
-            lightboxCaption.textContent = title.textContent;
+        item.addEventListener('click', () => {
+            const img = item.querySelector('img');
+            const title = item.querySelector('h4').textContent;
+            lightboxModal.style.display = 'block';
+            lightboxImg.src = img.src;
+            lightboxCaption.textContent = title;
         });
     });
 
-    if (lightboxClose) {
-        lightboxClose.addEventListener("click", () => {
-            lightboxModal.style.display = "none";
+    if(lightboxClose) {
+        lightboxClose.addEventListener('click', () => {
+            lightboxModal.style.display = 'none';
         });
     }
 
-    lightboxModal.addEventListener("click", event => {
-        if (event.target === lightboxModal) {
-            lightboxModal.style.display = "none";
+    lightboxModal.addEventListener('click', (e) => {
+        if(e.target === lightboxModal) {
+            lightboxModal.style.display = 'none';
         }
     });
 }
-
 
 // ==========================================================
 // 7. CONTACT INQUIRY FORM — BROWSER + FORMSPREE

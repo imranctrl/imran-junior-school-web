@@ -232,6 +232,11 @@ body {
 @media (max-width:668px){
     .action-btns{
         font-size: 0.7rem;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 45%;
+        margin: 18px auto;
     }
 }
 
@@ -713,7 +718,7 @@ body {
     ABOUT US PAGE ENHANCEMENTS & STYLES
    ========================================================== */
 .page-banner {
-    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2172.JPG') center/cover no-repeat;
+    background: linear-gradient(rgba(6, 78, 59, 0.5), rgba(136, 19, 55, 0.5)), url('images/371A2172.JPG') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     padding: 80px 20px;
@@ -1013,7 +1018,7 @@ body {
 }
 
 .page-banner-ac {
-    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2992.JPG') center/cover no-repeat;
+    background: linear-gradient(rgba(6, 78, 59, 0.5), rgba(136, 19, 55, 0.5)), url('images/371A2992.JPG') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     padding: 80px 20px;
@@ -1120,7 +1125,7 @@ body {
 
 /*Admissions page*/
 .page-banner-adM{
-    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2174.JPG') center/cover no-repeat;
+    background: linear-gradient(rgba(6, 78, 59, 0.5), rgba(136, 19, 55, 0.5)), url('images/371A2174.JPG') center/cover no-repeat;
     color: var(--white);
 }
 
@@ -1279,7 +1284,7 @@ body {
    GALLERY LIGHTBOX MODAL STYLES
    ========================================================== */
 .page-banner-gallery{
-    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2044.JPG') center/cover no-repeat;
+    background: linear-gradient(rgba(6, 78, 59, 0.5), rgba(136, 19, 55, 0.5)), url('images/371A2044.JPG') center/cover no-repeat;
     color: var(--white);
 }
 .gallery-item {
