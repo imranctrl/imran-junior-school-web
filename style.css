@@ -13,7 +13,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+    font-family: Arial, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* Enable global smooth scrolling */
@@ -68,43 +69,6 @@ body {
     background: var(--accent);
     padding: 4px 12px;
     border-radius: 4px;
-}
-
-.portal-btn i{
-    color: white;
-}
-
-/* Live Announcement Ticker Styles */
-.announcement-ticker {
-    background: var(--secondary);
-    color: var(--white);
-    padding: 10px 0;
-    overflow: hidden;
-    font-size: 0.95rem;
-}
-
-.ticker-flex {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
- .ticker-badge {
-    background: var(--accent);
-    padding: 3px 10px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 0.85rem;
-    white-space: nowrap;
-}
-.ticker-text p {
-    white-space: nowrap;
-    animation: tickerScroll 20s linear infinite;
-}
-
-@keyframes tickerScroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
 }
 
 /* Header & Navbar */
@@ -297,6 +261,41 @@ body {
 .btn-secondary:hover {
     background: var(--white);
     color: var(--primary);
+}
+
+
+/* Live Announcement Ticker Styles */
+.announcement-ticker {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 10px 0;
+    overflow: hidden;
+    font-size: 0.95rem;
+}
+
+.ticker-flex {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ticker-badge {
+    background: var(--accent);
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.ticker-text p {
+    white-space: nowrap;
+    animation: tickerScroll 20s linear infinite;
+}
+
+@keyframes tickerScroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* Countdown Section Styles */
@@ -714,10 +713,11 @@ body {
     ABOUT US PAGE ENHANCEMENTS & STYLES
    ========================================================== */
 .page-banner {
-    background: linear-gradient(rgba(6, 78, 59, 0.9), rgba(136, 19, 55, 0.9)), url('images/Domitory.webp') center/cover no-repeat;
+    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2172.JPG') center/cover no-repeat;
     color: var(--white);
     text-align: center;
     padding: 80px 20px;
+    min-height: 540px;
 }
 
 .page-banner h2 {
@@ -1012,6 +1012,13 @@ body {
     }
 }
 
+.page-banner-ac {
+    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2992.JPG') center/cover no-repeat;
+    color: var(--white);
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 540px;
+}
 .academics-container {
     padding: 60px 0;
 }
@@ -1112,6 +1119,11 @@ body {
 }
 
 /*Admissions page*/
+.page-banner-adM{
+    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2174.JPG') center/cover no-repeat;
+    color: var(--white);
+}
+
 .fees-container {
     padding: 60px 0;
 }
@@ -1266,7 +1278,10 @@ body {
 /* ==========================================================
    GALLERY LIGHTBOX MODAL STYLES
    ========================================================== */
-
+.page-banner-gallery{
+    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2044.JPG') center/cover no-repeat;
+    color: var(--white);
+}
 .gallery-item {
     cursor: pointer;
 }
@@ -1345,6 +1360,7 @@ body {
 
 .gallery-container {
     padding: 60px 0;
+    min-height: 540px;
 }
 
 .filter-buttons {
@@ -1418,6 +1434,9 @@ body {
 }
 
 /* Contact page*/
+.contact-pg-bg-img{
+    background: linear-gradient(rgba(8, 8, 8, 0.6) 10%,rgba(0, 17, 15, 0.745) ), url('images/371A2991.JPG.jpeg') center/cover no-repeat;
+}
 .contact-container {
     padding: 60px 0;
 }
@@ -1502,6 +1521,9 @@ body {
 .contact-form-box select:focus, 
 .contact-form-box textarea:focus {
     border-color: var(--primary);
+}
+.hidden{
+    display: none;
 }
 
 .success-message {
